@@ -1,0 +1,23 @@
+Basic Code web server running at 8080
+
+package main
+
+import (
+	"fmt"
+	"net/http"
+
+	"github.com/gorilla/mux"
+)
+
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Hello from Gorilla Mux!")
+	fmt.Fprintln(w, "Hello from Gorilla Mux!")
+}
+
+func main() {
+	r := mux.NewRouter()
+	r.HandleFunc("/", HomeHandler).Methods("GET")
+
+	fmt.Println("Server is running at http://localhost:8080")
+	http.ListenAndServe(":8080", r)
+}

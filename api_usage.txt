@@ -1,0 +1,24 @@
+Test It with curl or Postman
+🔹 Create a movie
+
+curl -X POST http://localhost:8000/movies \
+-H "Content-Type: application/json" \
+-d '{"isbn":"99999","title":"New Movie","director":{"firstname":"Alice","lastname":"Smith"}}'
+
+🔹 Get all movies
+
+curl http://localhost:8000/movies
+
+🔹 Get a specific movie
+
+curl http://localhost:8000/movies/001
+
+🔹 Update a movie
+
+curl -X PUT http://localhost:8000/movies/001 \
+-H "Content-Type: application/json" \
+-d '{"isbn":"12345","title":"Updated Title","director":{"firstname":"New","lastname":"Name"}}'
+
+🔹 Delete a movie
+
+curl -X DELETE http://localhost:8000/movies/001
